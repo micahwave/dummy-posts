@@ -19,13 +19,41 @@ function dp_submenu_page() {
 
 	?>
 	<div class="wrap">
+	
 		<h2>Dummy Posts</h2>
 		
-		<p></p>
-		
 		<form action="<?php echo admin_url( 'tools.php?page=dummy-posts' ); ?>" method="post">
+		
+			<p>
+				<input type="checkbox" name="rand_cat" value="1"/>
+				<label>Randomly select an category for post</label>
+			</p>
+			
+			<p>
+				<input type="checkbox" name="rand_img" value="1"/>
+				<label>Randomly select an image for post</label>
+			</p>
+			
+			<p>
+				<label>Dynamic Post Title</label><br/>
+				<input type="text" name="title" placeholder="Sample Posts #1"/>
+			</p>
+			
+			<p>
+				<label>Number of Posts to Generate</label><br/>
+				<select name="numposts">
+					<?php for( $i = 0; $i <= 60; $i++ ) : ?>
+					<?php if( $i % 5 == 0 && $i > 1 ) : ?>
+					<option value="<?php echo intval( $i ); ?>"><?php echo intval( $i ); ?></option>
+					<?php endif; ?>
+					<?php endfor; ?>
+				</select>
+			</p>
+				
 			<input type="submit" name="submit" value="Generate Dummy Posts" class="button-primary"/>
+			
 		</form>
+		
 	</div>
 	<?php
 }
