@@ -92,6 +92,7 @@ function dp() {
 		if( $images && is_array( $images ) ) {
 			shuffle( $images );
 			update_post_meta( $post_id, '_thumbnail_id', $images[0]->ID );
+			update_post_meta( $post_id, 'dummy_post', 1 );
 		}
 		
 		update_post_meta( $post_id, 'dp', 1 );
